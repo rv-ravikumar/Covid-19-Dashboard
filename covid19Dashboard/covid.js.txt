@@ -1,0 +1,38 @@
+async function getcovid19data() {
+    const jsonData = await fetch("https://api.covid19api.com/summary");
+    const jsData = await jsonData.json();
+    console.log(jsData);
+
+    // world
+    var input = document.getElementById("NewConfirmed");
+    input.innerHTML = jsData.Global.NewConfirmed;
+    var input = document.getElementById("NewDeaths");
+    input.innerHTML = jsData.Global.NewDeaths;
+    var input = document.getElementById("NewRecovered");
+    input.innerHTML = jsData.Global.NewRecovered;
+    var input = document.getElementById("TotalConfirmed");
+    input.innerHTML = jsData.Global.TotalConfirmed;
+    var input = document.getElementById("TotalDeaths");
+    input.innerHTML = jsData.Global.TotalDeaths;
+    var input = document.getElementById("TotalRecovered");
+    input.innerHTML = jsData.Global.TotalRecovered;
+
+    // india
+    const a = await jsData.Countries;
+    console.log(a);
+    var input = document.getElementById("NewConfirmedc");
+    input.innerHTML = jsData.Countries[76].NewConfirmed;
+    var input = document.getElementById("NewDeathsc");
+    input.innerHTML = jsData.Countries[76].NewDeaths;
+    var input = document.getElementById("NewRecoveredc");
+    input.innerHTML = jsData.Countries[76].NewRecovered;
+    var input = document.getElementById("TotalConfirmedc");
+    input.innerHTML = jsData.Countries[76].TotalConfirmed;
+    var input = document.getElementById("TotalDeathsc");
+    input.innerHTML = jsData.Countries[76].TotalDeaths;
+    var input = document.getElementById("TotalRecoveredc");
+    input.innerHTML = jsData.Countries[76].TotalRecovered;
+
+    // console.log(jsData);
+}
+getcovid19data();
